@@ -13,4 +13,8 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping(value = {"/hospitalList" }, method = RequestMethod.GET)
+    public String hospitalList(Model model) {
+        return "hospitalList";
+    }
 }
