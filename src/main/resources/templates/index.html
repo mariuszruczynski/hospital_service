@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+
+
+</head>
+<body>
+<h1>Welcome in Hospital Service</h1>
+<h3>Main menu:</h3>
+<a th:href="@{/hospitalList}">Hospitals list</a><br><br>
+<a th:href="@{/addHospital}">Add hospital</a><br><br>
+<a th:href="@{/doctorList}">Doctor list</a><br><br>
+<a th:href="@{/addDoctor}">Add doctor</a><br><br>
+<a th:href="@{/hireDoctor}">Hire doctor</a>
+</body>
+
+</html>
