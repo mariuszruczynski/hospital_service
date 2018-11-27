@@ -1,4 +1,4 @@
-package hospital_service.hospital_service;
+package hospital_service.hospital_service.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;

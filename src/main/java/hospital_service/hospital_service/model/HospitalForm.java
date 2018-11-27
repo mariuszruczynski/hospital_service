@@ -1,4 +1,4 @@
-package hospital_service.hospital_service;
+package hospital_service.hospital_service.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

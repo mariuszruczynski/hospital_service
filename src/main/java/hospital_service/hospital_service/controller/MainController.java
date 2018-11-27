@@ -1,4 +1,4 @@
-package hospital_service.hospital_service;
+package hospital_service.hospital_service.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +13,6 @@ public class MainController {
         return "index";
     }
 
-    @RequestMapping(value = {"/hospitalList" }, method = RequestMethod.GET)
-    public String hospitalList(Model model) {
-        return "hospitalList";
-    }
+
+
 }
