@@ -1,10 +1,10 @@
 package hospital_service.hospital_service.controller;
 
+import hospital_service.hospital_service.model.DoctorForm;
 import hospital_service.hospital_service.services.DoctorEntityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class DoctorController {
@@ -17,9 +17,24 @@ public class DoctorController {
     }
 
 
-    @RequestMapping(value = {"/doctorList" }, method = RequestMethod.GET)
+    @RequestMapping(value = {"/doctorList"}, method = RequestMethod.GET)
     public String findAll(Model model) {
         model.addAttribute("doctors", doctorEntityService.findAll());
         return "doctorList";
     }
+
+
+    @RequestMapping(value = {"/addDoctor"}, method = RequestMethod.GET)
+    public String addDoctor(Model model) {
+     model.addAttribute("doctorForm", new DoctorForm());
+        return "addDoctor";
+    }
+
+    @PostMapping(path = "/addDoctor")
+    public String createDoctor(@ModelAttribute("doctorForm") DoctorForm doctorForm, Model model) {
+        doctorEntityService.create(doctorForm);
+        return "redirect:/mvc/creditCards/all";
+    }
+
+
 }
