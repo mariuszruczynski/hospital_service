@@ -9,4 +9,6 @@ public interface DoctorEntityService {
     List<DoctorEntity> findAll();
 
     void create(DoctorForm doctorForm);
+
+    void deleteById(Long id);
 }

@@ -34,4 +34,11 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
 
         doctorEntityRepository.save(doctorEntity);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        doctorEntityRepository.deleteById(id);
+
+    }
+
 }

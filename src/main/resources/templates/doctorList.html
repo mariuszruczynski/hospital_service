@@ -24,8 +24,8 @@
             <td th:utext="${doctor.surname}">...</td>
             <td th:utext="${doctor.licenceNumber}">...</td>
             <td th:utext="${doctor.nationality}">...</td>
-            <td th:utext="${doctor.id}">...</td>
-            <td th:utext="${doctor.id}">...</td>
+            <td><a th:href="@{'/' + ${doctor.getId()} + '/editDoctor'}">edit</a></td>
+            <td><a th:href="@{'/' + ${doctor.getId()} + '/deleteDoctor'}">delete</a></td>
         </tr>
     </table>
 </div></center>

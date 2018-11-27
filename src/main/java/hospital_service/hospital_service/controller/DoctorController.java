@@ -26,7 +26,7 @@ public class DoctorController {
 
     @RequestMapping(value = {"/addDoctor"}, method = RequestMethod.GET)
     public String addDoctor(Model model) {
-     model.addAttribute("doctorForm", new DoctorForm());
+        model.addAttribute("doctorForm", new DoctorForm());
         return "addDoctor";
     }
 
@@ -36,5 +36,12 @@ public class DoctorController {
         return "redirect:/doctorList";
     }
 
+    @GetMapping(path ="/{id}/deleteDoctor")
+    public String deleteDoctor(@PathVariable Long id) {
+
+            doctorEntityService.deleteById(id);
+            return "redirect:/doctorList";
+
+    }
 
 }
