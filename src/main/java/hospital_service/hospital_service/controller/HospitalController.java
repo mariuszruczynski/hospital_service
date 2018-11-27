@@ -1,12 +1,12 @@
 package hospital_service.hospital_service.controller;
 
+import hospital_service.hospital_service.model.DoctorForm;
 import hospital_service.hospital_service.model.HospitalEntity;
+import hospital_service.hospital_service.model.HospitalForm;
 import hospital_service.hospital_service.services.HospitalEntityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +27,18 @@ public class HospitalController {
         model.addAttribute("hospitals", hospitalEntityService.findAll());
         return "hospitalList";
     }
+
+    @RequestMapping(value = {"/addHospital"}, method = RequestMethod.GET)
+    public String addDoctor(Model model) {
+        model.addAttribute("hospitalForm", new HospitalForm());
+        return "addHospital";
+    }
+
+    @PostMapping(path = "/addHospital")
+    public String createHospital(@ModelAttribute("doctorForm") HospitalForm hospitalForm, Model model) {
+        hospitalEntityService.create(hospitalForm);
+        return "redirect:/hospitalList";
+    }
+
 
 }

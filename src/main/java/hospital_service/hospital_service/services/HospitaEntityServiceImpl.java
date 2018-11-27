@@ -1,6 +1,7 @@
 package hospital_service.hospital_service.services;
 
 import hospital_service.hospital_service.model.HospitalEntity;
+import hospital_service.hospital_service.model.HospitalForm;
 import hospital_service.hospital_service.repositories.HospitalEntityRepository;
 import org.springframework.stereotype.Service;
 
@@ -18,5 +19,10 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
     @Override
     public List<HospitalEntity> findAll() {
         return hospitalEntityRepository.findAll();
+    }
+
+    @Override
+    public void create(HospitalForm hospitalForm) {
+
     }
 }

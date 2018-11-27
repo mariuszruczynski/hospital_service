@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add new hospital</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Create new hospital</h1>
+<form th:action="@{/addHospital}"
+      th:object="${hospitalForm}" method="POST">
+    First Name:
+    <input type="text" th:field="*{name}" />
+    <br/>
+    Last Name:
+    <input type="text" th:field="*{country}" />
+    <br/>
+    Licence number:
+    <input type="text" th:field="*{town}" />
+    <br/>
+    Nationality:
+    <input type="text" th:field="*{street}" />
+    <br/>
+    <input type="submit" value="Add hospital" />
+</form>
+</body>
+</html>

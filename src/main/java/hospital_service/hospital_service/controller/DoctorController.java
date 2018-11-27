@@ -33,7 +33,7 @@ public class DoctorController {
     @PostMapping(path = "/addDoctor")
     public String createDoctor(@ModelAttribute("doctorForm") DoctorForm doctorForm, Model model) {
         doctorEntityService.create(doctorForm);
-        return "redirect:/mvc/creditCards/all";
+        return "redirect:/doctorList";
     }
 
 
