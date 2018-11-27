@@ -33,4 +33,9 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
 
         hospitalEntityRepository.save(hospitalEntity);
     }
+
+    @Override
+    public void deleteById(Long id) {
+        hospitalEntityRepository.deleteById(id);
+    }
 }

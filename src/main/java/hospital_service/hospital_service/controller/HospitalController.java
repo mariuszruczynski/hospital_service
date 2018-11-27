@@ -36,4 +36,10 @@ public class HospitalController {
         return "redirect:/hospitalList";
     }
 
+    @GetMapping(path ="/{id}/deleteHospital")
+    public String deleteHospital(@PathVariable Long id) {
+
+        hospitalEntityService.deleteById(id);
+        return "redirect:/hospitalList";
+    }
 }

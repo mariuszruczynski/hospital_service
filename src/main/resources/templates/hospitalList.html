@@ -24,8 +24,8 @@
             <td th:utext="${hospital.country}">...</td>
             <td th:utext="${hospital.town}">...</td>
             <td th:utext="${hospital.street}">...</td>
-            <td th:utext="${hospital.street}">...</td>
-            <td th:utext="${hospital.street}">...</td>
+            <td><a th:href="@{'/' + ${hospital.getId()} + '/editHospital'}">edit</a></td>
+            <td><a th:href="@{'/' + ${hospital.getId()} + '/deleteHospital'}">delete</a></td>
         </tr>
     </table>
 </div></center>

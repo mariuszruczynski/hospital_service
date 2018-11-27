@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Edit doctor</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Change doctor's details</h1>
+    <form th:action="@{/editDoctor}" th:object="${editDoctor}" method="post">
+        <input type="hidden" name="id" th:value="${currentDoctor.id}"/>
+        First Name:
+        <input type="text" name="name" th:value="${currentDoctor.name}"/><br/>
+        Surname:
+        <input type="text" name="surname" th:value="${currentDoctor.surname}"/><br/>
+        Licence number:
+        <input type="text" name="licenceNumber" th:value="${currentDoctor.licenceNumber}"/><br/>
+        Nationality:
+        <input type="text" name="nationality" th:value="${currentDoctor.nationality}"/><br/>
+        <button type="submit">Change</button>
+</form>
+</body>
+</html>

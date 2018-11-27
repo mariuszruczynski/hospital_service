@@ -13,4 +13,6 @@ public interface HospitalEntityService {
     List<HospitalEntity> findAll();
 
     void create(HospitalForm hospitalForm);
+
+    void deleteById(Long id);
 }
