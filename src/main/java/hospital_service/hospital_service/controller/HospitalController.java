@@ -14,7 +14,6 @@ import java.util.List;
 
 
 @Controller
-//@RequestMapping("/hospitalList")
 public class HospitalController {
 
     private final HospitalEntityService hospitalEntityService;

@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface HospitalEntityService {
 
-    public List<HospitalEntity> findAll();
+    List<HospitalEntity> findAll();
 
 }

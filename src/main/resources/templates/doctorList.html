@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hospital List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Hospital List</h1>
+
+<br/>
+<center><div>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Licence number</th>
+            <th>Nationality</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each ="doctor : ${doctors}">
+            <td th:utext="${doctor.name}">...</td>
+            <td th:utext="${doctor.surname}">...</td>
+            <td th:utext="${doctor.licenceNumber}">...</td>
+            <td th:utext="${doctor.nationality}">...</td>
+            <td th:utext="${doctor.id}">...</td>
+            <td th:utext="${doctor.id}">...</td>
+        </tr>
+    </table>
+</div></center>
+<br><br>
+<a href="addDoctor">Add doctor</a><br><br>
+<a href="index">Main menu</a>
+</body>
+</html>
