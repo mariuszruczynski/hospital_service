@@ -9,16 +9,16 @@
 <h1>Create new hospital</h1>
 <form th:action="@{/addHospital}"
       th:object="${hospitalForm}" method="POST">
-    First Name:
+    Name:
     <input type="text" th:field="*{name}" />
     <br/>
-    Last Name:
+    Country:
     <input type="text" th:field="*{country}" />
     <br/>
-    Licence number:
+    Town:
     <input type="text" th:field="*{town}" />
     <br/>
-    Nationality:
+    Street:
     <input type="text" th:field="*{street}" />
     <br/>
     <input type="submit" value="Add hospital" />

@@ -24,5 +24,13 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
     @Override
     public void create(HospitalForm hospitalForm) {
 
+        HospitalEntity hospitalEntity = new HospitalEntity();
+
+        hospitalEntity.setName(hospitalForm.getName());
+        hospitalEntity.setCountry(hospitalForm.getCountry());
+        hospitalEntity.setTown(hospitalForm.getTown());
+        hospitalEntity.setStreet(hospitalForm.getStreet());
+
+        hospitalEntityRepository.save(hospitalEntity);
     }
 }
