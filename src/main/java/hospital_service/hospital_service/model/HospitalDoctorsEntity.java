@@ -17,16 +17,14 @@ public class HospitalDoctorsEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
-    @JoinColumn(name = "hospital_id")
-    private HospitalEntity hospitalID;
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private DoctorEntity doctorId;
-    @Column (name = "contract_start_date")
+    @Column(name = "hospital_id")
+    private Long hospitalID;
+    @Column(name = "doctor_id")
+    private Long doctorId;
+    @Column(name = "contract_start_date")
     private Date contractStartDate;
-    @Column (name = "contract_end_date")
+    @Column(name = "contract_end_date")
     private Date ContractEndDate;
-    @Column (name = "position")
+    @Column(name = "position")
     private String position;
 }

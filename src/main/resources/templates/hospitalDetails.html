@@ -15,22 +15,22 @@
     <h2 th:utext="'Country: ' + ${hospital.country}"></h2>
 </div>
 <br><br>
-<h1> List of doctors</h1>
+<h1> Doctors details</h1>
 
 <center>
     <table border="1">
         <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Licence number</th>
-            <th>Nationality</th>
+            <th>Doctor ID</th>
+            <th>Position</th>
+            <th>Contract start date</th>
+            <th>Contract end date</th>
 
         </tr>
         <tr th:each="doctor : ${doctors}">
-            <td th:utext="${doctor.name}">...</td>
-            <td th:utext="${doctor.surname}">...</td>
-            <td th:utext="${doctor.licenceNumber}">...</td>
-            <td th:utext="${doctor.nationality}">...</td>
+            <td th:utext="${doctor.doctorId}">...</td>
+            <td th:utext="${doctor.position}">...</td>
+            <td th:utext="${doctor.contractStartDate}">...</td>
+            <td th:utext="${doctor.contractEndDate}">...</td>
         </tr>
     </table>
 </center>

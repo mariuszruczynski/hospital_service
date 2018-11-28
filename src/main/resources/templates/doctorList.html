@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
 <body>
-<h1>Hospital List</h1>
+<h1>Doctor List</h1>
 
 <br/>
 <center><div>
@@ -19,7 +19,7 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <tr th:each ="doctor : ${doctors}">
+        <tr th:each="doctor : ${doctors}">
             <td th:utext="${doctor.name}">...</td>
             <td th:utext="${doctor.surname}">...</td>
             <td th:utext="${doctor.licenceNumber}">...</td>

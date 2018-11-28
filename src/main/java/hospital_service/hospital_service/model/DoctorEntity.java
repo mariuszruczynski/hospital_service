@@ -14,13 +14,13 @@ public class DoctorEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column (name = "name")
+    @Column(name = "name")
     private String name;
-    @Column (name = "surname")
+    @Column(name = "surname")
     private String surname;
     @Column(name = "licence_number", unique = true, nullable = false)
     private String licenceNumber;
-    @Column (name = "nationality")
+    @Column(name = "nationality")
     private String nationality;
 
 }

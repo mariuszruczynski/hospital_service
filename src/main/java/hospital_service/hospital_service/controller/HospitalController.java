@@ -2,22 +2,23 @@ package hospital_service.hospital_service.controller;
 
 import hospital_service.hospital_service.model.*;
 import hospital_service.hospital_service.services.DoctorEntityService;
+import hospital_service.hospital_service.services.HospitalDoctorsEntityService;
 import hospital_service.hospital_service.services.HospitalEntityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @Controller
 public class HospitalController {
 
     private final HospitalEntityService hospitalEntityService;
-    private final DoctorEntityService doctorEntityService;
+    private final HospitalDoctorsEntityService hospitalDoctorsEntityService;
 
-
-    public HospitalController(HospitalEntityService hospitalEntityService, DoctorEntityService doctorEntityService) {
+    public HospitalController(HospitalEntityService hospitalEntityService, DoctorEntityService doctorEntityService, HospitalDoctorsEntityService hospitalDoctorsEntityService) {
         this.hospitalEntityService = hospitalEntityService;
-        this.doctorEntityService = doctorEntityService;
+        this.hospitalDoctorsEntityService = hospitalDoctorsEntityService;
     }
 
     @RequestMapping(value = {"/hospitalList"}, method = RequestMethod.GET)
@@ -38,7 +39,7 @@ public class HospitalController {
         return "redirect:/hospitalList";
     }
 
-    @GetMapping(path ="/{id}/deleteHospital")
+    @GetMapping(path = "/{id}/deleteHospital")
     public String deleteHospital(@PathVariable Long id) {
 
         hospitalEntityService.deleteById(id);
@@ -65,8 +66,7 @@ public class HospitalController {
     @RequestMapping(value = {"/{id}/hospitalDetails"}, method = RequestMethod.GET)
     public String details(@PathVariable Long id, Model model) {
         model.addAttribute("hospital", hospitalEntityService.findById(id));
-        model.addAttribute("doctors", doctorEntityService.findHospitalDoctors());
+        model.addAttribute("doctors", hospitalDoctorsEntityService.findDoctorIdByHospitalId(id));
         return "hospitalDetails";
     }
-
 }

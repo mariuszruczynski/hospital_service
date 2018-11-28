@@ -1,7 +1,5 @@
 package hospital_service.hospital_service.controller;
 
-import hospital_service.hospital_service.model.DoctorDTO;
-import hospital_service.hospital_service.model.DoctorForm;
 import hospital_service.hospital_service.model.HospitalDoctorsForm;
 import hospital_service.hospital_service.services.DoctorEntityService;
 import hospital_service.hospital_service.services.HospitalDoctorsEntityService;
@@ -12,9 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
-import java.util.List;
-
 
 @Controller
 public class HospitalDoctorsController {
@@ -46,6 +41,4 @@ public class HospitalDoctorsController {
         hospitalDoctorsEntityService.create(hospitalDoctorsForm);
         return "redirect:/index";
     }
-
-
 }

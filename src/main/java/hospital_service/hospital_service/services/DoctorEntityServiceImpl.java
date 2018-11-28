@@ -55,7 +55,6 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
                 .licenceNumber(doctorEntity.getLicenceNumber())
                 .nationality(doctorEntity.getNationality())
                 .build();
-
     }
 
     public void editDoctor(EditDoctor editDoctor) {
@@ -70,10 +69,4 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
         doctorEntityRepository.save(doctorEntity);
 
     }
-
-    @Override
-    public Object findHospitalDoctors() {
-        return null;
-    }
-
 }

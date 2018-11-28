@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Add new hospital</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
@@ -10,18 +10,18 @@
 <form th:action="@{/addHospital}"
       th:object="${hospitalForm}" method="POST">
     Name:
-    <input type="text" th:field="*{name}" />
+    <input type="text" th:field="*{name}"/>
     <br/>
     Country:
-    <input type="text" th:field="*{country}" />
+    <input type="text" th:field="*{country}"/>
     <br/>
     Town:
-    <input type="text" th:field="*{town}" />
+    <input type="text" th:field="*{town}"/>
     <br/>
     Street:
-    <input type="text" th:field="*{street}" />
+    <input type="text" th:field="*{street}"/>
     <br/>
-    <input type="submit" value="Add hospital" />
+    <input type="submit" value="Add hospital"/>
     <br/>
     <br/>
     <br/>

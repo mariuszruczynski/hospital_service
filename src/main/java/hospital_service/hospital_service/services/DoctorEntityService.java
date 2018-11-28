@@ -19,5 +19,4 @@ public interface DoctorEntityService {
 
     void editDoctor(EditDoctor editDoctor);
 
-    Object findHospitalDoctors();
 }

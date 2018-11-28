@@ -7,18 +7,15 @@ import hospital_service.hospital_service.repositories.HospitalEntityRepository;
 import hospital_service.hospital_service.repositories.HospitalsDoctorsEntityRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class HospitalDoctorsEntityServiceImpl implements HospitalDoctorsEntityService {
 
     private final HospitalsDoctorsEntityRepository hospitalsDoctorsEntityRepository;
 
-    private final DoctorEntityRepository doctorEntityRepository;
-    private final HospitalEntityRepository hospitalEntityRepository;
-
     public HospitalDoctorsEntityServiceImpl(HospitalsDoctorsEntityRepository hospitalsDoctorsEntityRepository, DoctorEntityRepository doctorEntityRepository, HospitalEntityRepository hospitalEntityRepository) {
         this.hospitalsDoctorsEntityRepository = hospitalsDoctorsEntityRepository;
-        this.doctorEntityRepository = doctorEntityRepository;
-        this.hospitalEntityRepository = hospitalEntityRepository;
     }
 
     @Override
@@ -29,9 +26,14 @@ public class HospitalDoctorsEntityServiceImpl implements HospitalDoctorsEntitySe
         hospitalDoctorsEntity.setContractStartDate(hospitalDoctorsForm.getContractStartDate());
         hospitalDoctorsEntity.setContractEndDate(hospitalDoctorsForm.getContractEndDate());
         hospitalDoctorsEntity.setPosition(hospitalDoctorsForm.getPosition());
-        hospitalDoctorsEntity.setDoctorId(doctorEntityRepository.getOne(hospitalDoctorsForm.getDoctorId()));
-        hospitalDoctorsEntity.setHospitalID(hospitalEntityRepository.getOne(hospitalDoctorsForm.getHospitalId()));
+        hospitalDoctorsEntity.setDoctorId(hospitalDoctorsForm.getDoctorId());
+        hospitalDoctorsEntity.setHospitalID(hospitalDoctorsForm.getHospitalId());
 
         hospitalsDoctorsEntityRepository.save(hospitalDoctorsEntity);
+    }
+
+    @Override
+    public List<HospitalDoctorsEntity> findDoctorIdByHospitalId(Long id) {
+        return hospitalsDoctorsEntityRepository.findDoctorIdByHospitalId(id);
     }
 }
