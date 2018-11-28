@@ -1,12 +1,10 @@
 package hospital_service.hospital_service.controller;
 
-import hospital_service.hospital_service.model.HospitalForm;
+import hospital_service.hospital_service.model.*;
 import hospital_service.hospital_service.services.HospitalEntityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @Controller
@@ -42,4 +40,24 @@ public class HospitalController {
         hospitalEntityService.deleteById(id);
         return "redirect:/hospitalList";
     }
+
+    @GetMapping(path = "/{id}/editHospital")
+    public String editDoctor(@PathVariable Long id, Model model) {
+
+        EditHospital editHospital = new EditHospital();
+        HospitalDTO hospital = hospitalEntityService.findById(id);
+        model.addAttribute("currentHospital", hospital);
+        model.addAttribute("editHospital", editHospital);
+        return "editHospital";
+
+    }
+
+    @PostMapping(path = "/editHospital")
+    public String editHospital(@ModelAttribute EditHospital editHospital) {
+        hospitalEntityService.editHospital(editHospital);
+        return "redirect:hospitalList";
+    }
+
+
+
 }

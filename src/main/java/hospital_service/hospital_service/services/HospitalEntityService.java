@@ -1,7 +1,6 @@
 package hospital_service.hospital_service.services;
 
-import hospital_service.hospital_service.model.HospitalEntity;
-import hospital_service.hospital_service.model.HospitalForm;
+import hospital_service.hospital_service.model.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,4 +14,8 @@ public interface HospitalEntityService {
     void create(HospitalForm hospitalForm);
 
     void deleteById(Long id);
+
+    HospitalDTO findById(Long id);
+
+    void editHospital(EditHospital editHospital);
 }
