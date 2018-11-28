@@ -71,4 +71,9 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
 
     }
 
+    @Override
+    public Object findHospitalDoctors() {
+        return null;
+    }
+
 }

@@ -1,6 +1,7 @@
 package hospital_service.hospital_service.controller;
 
 import hospital_service.hospital_service.model.*;
+import hospital_service.hospital_service.services.DoctorEntityService;
 import hospital_service.hospital_service.services.HospitalEntityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class HospitalController {
 
     private final HospitalEntityService hospitalEntityService;
+    private final DoctorEntityService doctorEntityService;
 
-    public HospitalController(HospitalEntityService hospitalEntityService) {
+
+    public HospitalController(HospitalEntityService hospitalEntityService, DoctorEntityService doctorEntityService) {
         this.hospitalEntityService = hospitalEntityService;
+        this.doctorEntityService = doctorEntityService;
     }
 
     @RequestMapping(value = {"/hospitalList"}, method = RequestMethod.GET)
@@ -58,7 +62,11 @@ public class HospitalController {
         return "redirect:hospitalList";
     }
 
-
-
+    @RequestMapping(value = {"/{id}/hospitalDetails"}, method = RequestMethod.GET)
+    public String details(@PathVariable Long id, Model model) {
+        model.addAttribute("hospital", hospitalEntityService.findById(id));
+        model.addAttribute("doctors", doctorEntityService.findHospitalDoctors());
+        return "hospitalDetails";
+    }
 
 }

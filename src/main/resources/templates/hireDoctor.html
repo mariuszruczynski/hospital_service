@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Hire doctor</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
@@ -22,15 +22,19 @@
                 th:text="${doctor.licenceNumber}"></option>
     </select><br/>
     Contract start date:
-    <input type="date" th:field="*{contractStartDate}" />
+    <input type="date" th:field="*{contractStartDate}"/>
     <br/>
     Contract end date:
-    <input type="date" th:field="*{contractEndDate}" />
+    <input type="date" th:field="*{contractEndDate}"/>
     <br/>
     Position:
-    <input type="text" th:field="*{position}" />
+    <input type="text" th:field="*{position}"/>
+    <input type="submit" value="Hire a doctor"/>
+    <br/>
+    <br/>
+    <br/>
+    <a th:href="@{/index}">Back</a>
 
-    <input type="submit" value="Hire a doctor" />
 </form>
 </body>
 </html>

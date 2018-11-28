@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Hospital List</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
 </head>
@@ -9,28 +9,30 @@
 <h1>Hospital List</h1>
 
 <br/>
-<center><div>
-    <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Country</th>
-            <th>Town</th>
-            <th>Street</th>
-            <th>Edit</th>
-            <th>Delete</th>
-            <th>List of doctors</th>
-        </tr>
-        <tr th:each ="hospital : ${hospitals}">
-            <td th:utext="${hospital.name}">...</td>
-            <td th:utext="${hospital.country}">...</td>
-            <td th:utext="${hospital.town}">...</td>
-            <td th:utext="${hospital.street}">...</td>
-            <td><a th:href="@{'/' + ${hospital.getId()} + '/editHospital'}">edit</a></td>
-            <td><a th:href="@{'/' + ${hospital.getId()} + '/deleteHospital'}">delete</a></td>
-            <td><a th:href="@{'/' + ${hospital.getId()} + '/hospitalDoctorList'}">list</a></td>
-        </tr>
-    </table>
-</div></center>
+<center>
+    <div>
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Town</th>
+                <th>Street</th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>List of doctors</th>
+            </tr>
+            <tr th:each="hospital : ${hospitals}">
+                <td th:utext="${hospital.name}">...</td>
+                <td th:utext="${hospital.country}">...</td>
+                <td th:utext="${hospital.town}">...</td>
+                <td th:utext="${hospital.street}">...</td>
+                <td><a th:href="@{'/' + ${hospital.getId()} + '/editHospital'}">edit</a></td>
+                <td><a th:href="@{'/' + ${hospital.getId()} + '/deleteHospital'}">delete</a></td>
+                <td><a th:href="@{'/' + ${hospital.getId()} + '/hospitalDetails'}">list of doctors</a></td>
+            </tr>
+        </table>
+    </div>
+</center>
 <br><br>
 <a href="addHospital">Add new hospital</a><br><br>
 <a href="index">Main menu</a>
