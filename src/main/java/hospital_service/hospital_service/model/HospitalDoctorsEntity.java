@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Data
@@ -19,14 +20,14 @@ public class HospitalDoctorsEntity {
     private Long id;
     @ManyToOne
     @JoinColumn(name = "hospital_id")
-    private HospitalEntity hospitalEntity;
+    private HospitalEntity hospitalID;
     @ManyToOne
-    @JoinColumn(name = "dostor_id")
-    private DoctorEntity dostorId;
+    @JoinColumn(name = "doctor_id")
+    private DoctorEntity doctorId;
     @Column (name = "contract_start_date")
-    private LocalDate contractStartDate;
+    private Date contractStartDate;
     @Column (name = "contract_end_date")
-    private LocalDate ContractEndDate;
+    private Date ContractEndDate;
     @Column (name = "position")
     private String position;
 }

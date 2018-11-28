@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hire doctor</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
+</head>
+<body>
+<h1>Hire a doctor</h1>
+<form th:action="@{/hireDoctor}"
+      th:object="${hireForm}" method="POST">
+    Contract start date:
+    <input type="date" th:field="*{contractStartDate}" />
+    <br/>
+    Contract end date:
+    <input type="date" th:field="*{contractEndDate}" />
+    <br/>
+    Position:
+    <input type="text" th:field="*{position}" />
+
+    <input type="submit" value="Hire a doctor" />
+</form>
+</body>
+</html>

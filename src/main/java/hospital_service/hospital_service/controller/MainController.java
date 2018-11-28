@@ -13,6 +13,10 @@ public class MainController {
         return "index";
     }
 
+    @RequestMapping(value = {"/errorPage" }, method = RequestMethod.GET)
+    public String errorPage(Model model) {
+        return "errorPage";
+    }
 
 
 

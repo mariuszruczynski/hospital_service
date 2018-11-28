@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 
@@ -14,8 +15,8 @@ public class HospitalDoctorsForm {
 
     private Long hospitalId;
     private Long doctorId;
-    private LocalDate contractStartDate;
-    private LocalDate ContractEndDate;
+    private Date contractStartDate;
+    private Date ContractEndDate;
     private String position;
 
 }
