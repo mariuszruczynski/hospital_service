@@ -46,7 +46,6 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
     @Override
     public void editHospital(EditHospital editHospital) {
 
-
         HospitalEntity hospitalEntity = new HospitalEntity();
         hospitalEntity.setId(editHospital.getId());
         hospitalEntity.setName(editHospital.getName());
@@ -65,6 +64,7 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
                 .town(hospitalEntity.getTown())
                 .street(hospitalEntity.getStreet())
                 .build();
+
     }
 }
 

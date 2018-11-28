@@ -18,4 +18,5 @@ public interface DoctorEntityService {
     DoctorDTO findById(Long id);
 
     void editDoctor(EditDoctor editDoctor);
+
 }

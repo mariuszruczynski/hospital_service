@@ -1,6 +1,5 @@
 package hospital_service.hospital_service.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EditDoctor {
-
 
     private Long id;
     private String name;

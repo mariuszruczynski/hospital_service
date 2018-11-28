@@ -1,8 +1,8 @@
 package hospital_service.hospital_service.controller;
 
-
+import hospital_service.hospital_service.model.DoctorDTO;
+import hospital_service.hospital_service.model.DoctorForm;
 import hospital_service.hospital_service.model.HospitalDoctorsForm;
-import hospital_service.hospital_service.model.HospitalForm;
 import hospital_service.hospital_service.services.DoctorEntityService;
 import hospital_service.hospital_service.services.HospitalDoctorsEntityService;
 import hospital_service.hospital_service.services.HospitalEntityService;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
+
 
 @Controller
 public class HospitalDoctorsController {
@@ -31,7 +32,10 @@ public class HospitalDoctorsController {
     @RequestMapping(value = {"/hireDoctor"}, method = RequestMethod.GET)
     public String hireDoctor(Model model) {
         model.addAttribute("hireForm", new HospitalDoctorsForm());
+        model.addAttribute("hospitalList", hospitalEntityService.findAll());
+        model.addAttribute("doctorList", doctorEntityService.findAll());
         return "hireDoctor";
+
     }
 
     @PostMapping(path = "/hireDoctor")
@@ -43,15 +47,5 @@ public class HospitalDoctorsController {
         return "redirect:/index";
     }
 
-//    @RequestMapping(value = {"/addHospital"}, method = RequestMethod.GET)
-//    public String addHospital(Model model) {
-//        model.addAttribute("hospitalForm", new HospitalForm());
-//        return "addHospital";
-//    }
-//
-//    @PostMapping(path = "/addHospital")
-//    public String createHospital(@ModelAttribute("doctorForm") HospitalForm hospitalForm, Model model) {
-//        hospitalEntityService.create(hospitalForm);
-//        return "redirect:/hospitalList";
 
 }

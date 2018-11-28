@@ -1,6 +1,5 @@
 package hospital_service.hospital_service.model;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class DoctorForm {
 
+    private Long id;
     private String name;
     private String surname;
     private String licenceNumber;

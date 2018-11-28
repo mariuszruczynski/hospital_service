@@ -12,4 +12,5 @@ public class HospitalForm {
     private String country;
     private String town;
     private String street;
+
 }

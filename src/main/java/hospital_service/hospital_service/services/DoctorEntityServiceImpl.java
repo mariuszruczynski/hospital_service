@@ -1,6 +1,5 @@
 package hospital_service.hospital_service.services;
 
-
 import hospital_service.hospital_service.model.DoctorDTO;
 import hospital_service.hospital_service.model.DoctorEntity;
 import hospital_service.hospital_service.model.DoctorForm;
@@ -48,7 +47,6 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
         return convertToDoctorDTO(doctorEntityRepository.findById(id).orElse(null));
     }
 
-
     private DoctorDTO convertToDoctorDTO(DoctorEntity doctorEntity) {
         return DoctorDTO.builder()
                 .id(doctorEntity.getId())
@@ -57,7 +55,8 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
                 .licenceNumber(doctorEntity.getLicenceNumber())
                 .nationality(doctorEntity.getNationality())
                 .build();
-        }
+
+    }
 
     public void editDoctor(EditDoctor editDoctor) {
 
@@ -69,6 +68,7 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
         doctorEntity.setNationality(editDoctor.getNationality());
 
         doctorEntityRepository.save(doctorEntity);
+
     }
 
 }

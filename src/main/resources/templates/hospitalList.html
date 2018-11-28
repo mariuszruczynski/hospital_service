@@ -18,6 +18,7 @@
             <th>Street</th>
             <th>Edit</th>
             <th>Delete</th>
+            <th>List of doctors</th>
         </tr>
         <tr th:each ="hospital : ${hospitals}">
             <td th:utext="${hospital.name}">...</td>
@@ -26,6 +27,7 @@
             <td th:utext="${hospital.street}">...</td>
             <td><a th:href="@{'/' + ${hospital.getId()} + '/editHospital'}">edit</a></td>
             <td><a th:href="@{'/' + ${hospital.getId()} + '/deleteHospital'}">delete</a></td>
+            <td><a th:href="@{'/' + ${hospital.getId()} + '/hospitalDoctorList'}">list</a></td>
         </tr>
     </table>
 </div></center>
