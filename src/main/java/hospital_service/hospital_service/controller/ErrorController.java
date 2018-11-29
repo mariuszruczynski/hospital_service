@@ -18,4 +18,8 @@ public class ErrorController {
         return "errorLicenceNumberPage";
     }
 
+    @RequestMapping(value = {"/errorHospitalPage"}, method = RequestMethod.GET)
+    public String errorHospitalPage(Model model) {
+        return "errorHospitalPage";
+    }
 }

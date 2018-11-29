@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 @Controller
@@ -16,7 +17,7 @@ public class HospitalController {
     private final HospitalEntityService hospitalEntityService;
     private final HospitalDoctorsEntityService hospitalDoctorsEntityService;
 
-    public HospitalController(HospitalEntityService hospitalEntityService, DoctorEntityService doctorEntityService, HospitalDoctorsEntityService hospitalDoctorsEntityService) {
+    public HospitalController(HospitalEntityService hospitalEntityService, HospitalDoctorsEntityService hospitalDoctorsEntityService) {
         this.hospitalEntityService = hospitalEntityService;
         this.hospitalDoctorsEntityService = hospitalDoctorsEntityService;
     }
@@ -35,6 +36,13 @@ public class HospitalController {
 
     @PostMapping(path = "/addHospital")
     public String createHospital(@ModelAttribute("doctorForm") HospitalForm hospitalForm, Model model) {
+       List<HospitalEntity> list = hospitalEntityService.findAll();
+
+        for(HospitalEntity hosp:list){
+            if (hospitalForm.getName().equalsIgnoreCase(hosp.getName())){
+                return "redirect:/errorHospitalPage";
+            }
+        }
         hospitalEntityService.create(hospitalForm);
         return "redirect:/hospitalList";
     }
