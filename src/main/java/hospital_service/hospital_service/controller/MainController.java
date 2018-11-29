@@ -12,10 +12,4 @@ public class MainController {
     public String index(Model model) {
         return "index";
     }
-
-    @RequestMapping(value = {"/errorPage"}, method = RequestMethod.GET)
-    public String errorPage(Model model) {
-        return "errorPage";
-    }
-
 }

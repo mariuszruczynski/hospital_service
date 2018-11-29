@@ -1,12 +1,15 @@
 package hospital_service.hospital_service.controller;
 
 import hospital_service.hospital_service.model.DoctorDTO;
+import hospital_service.hospital_service.model.DoctorEntity;
 import hospital_service.hospital_service.model.DoctorForm;
 import hospital_service.hospital_service.model.EditDoctor;
 import hospital_service.hospital_service.services.DoctorEntityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @Controller
@@ -31,6 +34,13 @@ public class DoctorController {
 
     @PostMapping(path = "/addDoctor")
     public String createDoctor(@ModelAttribute("doctorForm") DoctorForm doctorForm, Model model) {
+        List<DoctorEntity> list = doctorEntityService.findAll();
+
+        for (DoctorEntity doc : list) {
+            if (doctorForm.getLicenceNumber().equals(doc.getLicenceNumber())) {
+                return "redirect:/errorLicenceNumberPage";
+            }
+        }
         doctorEntityService.create(doctorForm);
         return "redirect:/doctorList";
     }
