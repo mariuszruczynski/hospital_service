@@ -4,15 +4,21 @@
     <meta charset="UTF-8"/>
     <title></title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
-
-
 </head>
 <body>
 <h1>Welcome To The Hospital Service</h1>
+welcome  <a th:utext="${loggedUser}"> </a>
 <h3>Main menu:</h3>
+
 <a th:href="@{/hospitalList}">Hospital list</a></br><br>
 <a th:href="@{/doctorList}">Doctor list</a></br><br>
 <a th:href="@{/hireDoctor}">Hire a doctor</a>
+
+<br><br>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 
 </html>

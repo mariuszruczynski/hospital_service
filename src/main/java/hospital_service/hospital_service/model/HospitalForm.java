@@ -13,5 +13,6 @@ public class HospitalForm {
     private String country;
     private String town;
     private String street;
+    private Long idUser;
 
 }

@@ -14,5 +14,6 @@ public class DoctorForm {
     private String surname;
     private String licenceNumber;
     private String nationality;
+    private Long idUser;
 
 }

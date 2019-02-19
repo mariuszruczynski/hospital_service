@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Doctor List</title>
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>-->
+</head>
+<body>
+<center>
+    <h1>Add new userEntity</h1>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}">
+    </div>
+    <form th:action="@{/addUser}"
+          th:object="${userDto}" method="POST">
+        Username:
+        <input type="text" th:field="*{username}"/>
+        <br/>
+        Password:
+        <input type="text" th:field="*{password}"/>
+        <br/>
+        Email:
+        <input type="email" th:field="*{email}"/>
+        <br/>
+        <input type="submit" value="Add userEntity"/>
+    </form>
+
+    <br/>
+    <br/>
+    <br/>
+    <a th:href="@{/login}">Back</a>
+</body>
+</center>
+</html>

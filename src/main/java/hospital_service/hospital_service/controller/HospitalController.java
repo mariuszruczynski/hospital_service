@@ -16,10 +16,12 @@ public class HospitalController {
 
     private final HospitalEntityService hospitalEntityService;
     private final HospitalDoctorsEntityService hospitalDoctorsEntityService;
+    private  final DoctorEntityService  doctorEntityService;
 
-    public HospitalController(HospitalEntityService hospitalEntityService, HospitalDoctorsEntityService hospitalDoctorsEntityService) {
+    public HospitalController(HospitalEntityService hospitalEntityService, HospitalDoctorsEntityService hospitalDoctorsEntityService, DoctorEntityService doctorEntityService) {
         this.hospitalEntityService = hospitalEntityService;
         this.hospitalDoctorsEntityService = hospitalDoctorsEntityService;
+        this.doctorEntityService = doctorEntityService;
     }
 
     @RequestMapping(value = {"/hospitalList"}, method = RequestMethod.GET)

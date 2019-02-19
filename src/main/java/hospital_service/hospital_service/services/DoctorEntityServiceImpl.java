@@ -13,14 +13,17 @@ import java.util.List;
 public class DoctorEntityServiceImpl implements DoctorEntityService {
 
     private final DoctorEntityRepository doctorEntityRepository;
+    private final UserUtils userUtils;
 
-    public DoctorEntityServiceImpl(DoctorEntityRepository doctorEntityRepository) {
+    public DoctorEntityServiceImpl(DoctorEntityRepository doctorEntityRepository, UserUtils userUtils) {
         this.doctorEntityRepository = doctorEntityRepository;
+        this.userUtils = userUtils;
     }
+
 
     @Override
     public List<DoctorEntity> findAll() {
-        return doctorEntityRepository.findAll();
+        return doctorEntityRepository.findAll(userUtils.getLoggedUserId());
     }
 
     @Override
@@ -32,6 +35,7 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
         doctorEntity.setSurname(doctorForm.getSurname());
         doctorEntity.setLicenceNumber(doctorForm.getLicenceNumber());
         doctorEntity.setNationality(doctorForm.getNationality());
+        doctorEntity.setIdUser(userUtils.getLoggedUserId());
 
         doctorEntityRepository.save(doctorEntity);
     }
@@ -54,17 +58,20 @@ public class DoctorEntityServiceImpl implements DoctorEntityService {
                 .surname(doctorEntity.getSurname())
                 .licenceNumber(doctorEntity.getLicenceNumber())
                 .nationality(doctorEntity.getNationality())
+                .idUser(doctorEntity.getIdUser())
                 .build();
     }
 
     public void editDoctor(EditDoctor editDoctor) {
 
         DoctorEntity doctorEntity = new DoctorEntity();
+
         doctorEntity.setId(editDoctor.getId());
         doctorEntity.setName(editDoctor.getName());
         doctorEntity.setSurname(editDoctor.getSurname());
         doctorEntity.setLicenceNumber(editDoctor.getLicenceNumber());
         doctorEntity.setNationality(editDoctor.getNationality());
+        doctorEntity.setIdUser(userUtils.getLoggedUserId());
 
         doctorEntityRepository.save(doctorEntity);
 

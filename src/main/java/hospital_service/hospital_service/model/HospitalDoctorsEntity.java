@@ -27,4 +27,6 @@ public class HospitalDoctorsEntity {
     private Date ContractEndDate;
     @Column(name = "position")
     private String position;
+
+    private Long idUser;
 }

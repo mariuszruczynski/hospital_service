@@ -1,5 +1,6 @@
 package hospital_service.hospital_service.services;
 
+import hospital_service.hospital_service.model.DoctorDTO;
 import hospital_service.hospital_service.model.HospitalDoctorsEntity;
 import hospital_service.hospital_service.model.HospitalDoctorsForm;
 
@@ -9,5 +10,5 @@ public interface HospitalDoctorsEntityService {
 
     void create(HospitalDoctorsForm hospitalDoctorsForm);
 
-    List<HospitalDoctorsEntity> findDoctorIdByHospitalId(Long id);
+    List<HospitalDoctorDTO> findDoctorIdByHospitalId(Long id);
 }

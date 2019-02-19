@@ -7,17 +7,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class HospitaEntityServiceImpl implements HospitalEntityService {
+public class HospitalEntityServiceImpl implements HospitalEntityService {
 
     private final HospitalEntityRepository hospitalEntityRepository;
+    private final UserUtils userUtils;
 
-    public HospitaEntityServiceImpl(HospitalEntityRepository hospitalEntityRepository) {
+    public HospitalEntityServiceImpl(HospitalEntityRepository hospitalEntityRepository, UserUtils userUtils) {
         this.hospitalEntityRepository = hospitalEntityRepository;
+        this.userUtils = userUtils;
     }
 
     @Override
     public List<HospitalEntity> findAll() {
-        return hospitalEntityRepository.findAll();
+        return hospitalEntityRepository.findAll(userUtils.getLoggedUserId());
     }
 
     @Override
@@ -29,6 +31,7 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
         hospitalEntity.setCountry(hospitalForm.getCountry());
         hospitalEntity.setTown(hospitalForm.getTown());
         hospitalEntity.setStreet(hospitalForm.getStreet());
+        hospitalEntity.setIdUser(userUtils.getLoggedUserId());
 
         hospitalEntityRepository.save(hospitalEntity);
     }
@@ -52,6 +55,7 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
         hospitalEntity.setCountry(editHospital.getCountry());
         hospitalEntity.setTown(editHospital.getTown());
         hospitalEntity.setStreet(editHospital.getStreet());
+        hospitalEntity.setIdUser(userUtils.getLoggedUserId());
 
         hospitalEntityRepository.save(hospitalEntity);
     }
@@ -63,6 +67,7 @@ public class HospitaEntityServiceImpl implements HospitalEntityService {
                 .country(hospitalEntity.getCountry())
                 .town(hospitalEntity.getTown())
                 .street(hospitalEntity.getStreet())
+                .idUser(hospitalEntity.getIdUser())
                 .build();
 
     }

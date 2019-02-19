@@ -15,19 +15,23 @@
     <h2 th:utext="'Country: ' + ${hospital.country}"></h2>
 </div>
 <br><br>
-<h1> Doctors details</h1>
+<h1> Doctors list</h1>
 
 <center>
     <table border="1">
         <tr>
-            <th>Doctor ID</th>
-            <th>Position</th>
-            <th>Contract start date</th>
-            <th>Contract end date</th>
+            <th>Doctor name</th>
+            <th>Doctor surname</th>
+            <th>Doctor licence number</th>
+            <th>Doctor position</th>
+            <th>Doctor contract start date</th>
+            <th>Doctor contract end date</th>
 
         </tr>
         <tr th:each="doctor : ${doctors}">
-            <td th:utext="${doctor.doctorId}">...</td>
+            <td th:utext="${doctor.name}">...</td>
+            <td th:utext="${doctor.surname}">...</td>
+            <td th:utext="${doctor.licenceNumber}">...</td>
             <td th:utext="${doctor.position}">...</td>
             <td th:utext="${doctor.contractStartDate}">...</td>
             <td th:utext="${doctor.contractEndDate}">...</td>
@@ -38,6 +42,11 @@
 <br/>
 <br/>
 <a th:href="@{/hospitalList}">Back</a>
+<br><br>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 
 </body>
 </html>

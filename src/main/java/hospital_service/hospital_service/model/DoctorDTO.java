@@ -13,5 +13,6 @@ public class DoctorDTO {
     private String surname;
     private String licenceNumber;
     private String nationality;
+    private Long idUser;
 
 }

@@ -16,4 +16,5 @@ public class HospitalDTO {
     private String country;
     private String town;
     private String street;
+    private Long idUser;
 }

@@ -17,4 +17,5 @@ public class HospitalDoctorsForm {
     private Date ContractEndDate;
     private String position;
 
+    private Long idUser;
 }

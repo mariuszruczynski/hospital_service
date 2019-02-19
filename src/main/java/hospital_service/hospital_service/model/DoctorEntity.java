@@ -22,5 +22,7 @@ public class DoctorEntity {
     private String licenceNumber;
     @Column(name = "nationality")
     private String nationality;
+    @Column(name = "id_user")
+    private Long idUser;
 
 }

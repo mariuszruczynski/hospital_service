@@ -23,4 +23,6 @@ public class HospitalEntity {
     @Column(name = "street")
     private String street;
 
+    private Long idUser;
+
 }
